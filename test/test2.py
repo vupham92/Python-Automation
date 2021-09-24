@@ -20,10 +20,14 @@ class TestHomePage():
         driver.find_element_by_id("menu-item-40").click()
         driver.find_element_by_id("site-logo").click()
         num_slider = driver.find_elements_by_class_name("n2-ss-slide")
-        if len(num_slider) == 3:
-            print("Home Page contains only three sliders")
-        else:
-            print("Home page does note contain three sliders")
+        assert len(num_slider) == 3
+
+    def test_homepage02(self,test_setup):
+        driver.get("http://practice.automationtesting.in/")
+        driver.find_element_by_id("menu-item-40").click()
+        driver.find_element_by_id("site-logo").click()
+        num_arrivals = driver.find_elements_by_id("text-22-sub_row_1-0-2-")
+        assert len(num_arrivals) == 3
 
     # def test_teardown():
     #     driver.close()
